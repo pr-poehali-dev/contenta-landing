@@ -96,14 +96,14 @@ export default function Cases() {
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto space-y-4 md:space-y-6">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-7xl mx-auto">
           {filteredCases.map((caseItem) => (
             <div
               key={caseItem.id}
               className={`group relative overflow-hidden rounded-2xl md:rounded-3xl transition-all duration-500 cursor-pointer ${
                 expandedCase === caseItem.id 
-                  ? 'min-h-[180px] md:min-h-[220px]' 
-                  : 'min-h-[180px] md:min-h-[220px]'
+                  ? 'min-h-[180px] md:min-h-[380px]' 
+                  : 'min-h-[180px] md:min-h-[300px]'
               }`}
               onClick={() => setExpandedCase(expandedCase === caseItem.id ? null : caseItem.id)}
             >
