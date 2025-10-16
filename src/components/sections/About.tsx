@@ -1,6 +1,33 @@
+import { useEffect, useRef } from 'react';
 import Icon from '@/components/ui/icon';
 
 export default function About() {
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    let scrollAmount = 0;
+    const scrollStep = 1;
+    const slideWidth = slider.scrollWidth / 3;
+
+    const autoScroll = () => {
+      scrollAmount += scrollStep;
+      
+      if (scrollAmount >= slideWidth) {
+        scrollAmount = 0;
+        slider.scrollLeft = 0;
+      } else {
+        slider.scrollLeft = scrollAmount;
+      }
+    };
+
+    const interval = setInterval(autoScroll, 30);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="about" className="py-24 px-4 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-3xl" />
@@ -41,24 +68,53 @@ export default function About() {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 mt-12">
-              {[
-                { value: '50+', label: 'Успешных проектов', icon: 'Target' },
-                { value: '180%', label: 'Средний рост продаж', icon: 'TrendingUp' },
-                { value: '5 лет', label: 'На рынке', icon: 'Award' }
-              ].map((stat, i) => (
-                <div key={i} className="group">
-                  <div className="bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all">
-                    <Icon name={stat.icon} size={24} className="text-primary mb-3 group-hover:scale-110 transition-transform" />
-                    <div className="text-3xl font-bold gradient-text mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-muted-foreground font-medium leading-tight">
-                      {stat.label}
+            <div className="mt-12">
+              <div className="hidden md:grid grid-cols-3 gap-6">
+                {[
+                  { value: '50+', label: 'Успешных проектов', icon: 'Target' },
+                  { value: '180%', label: 'Средний рост продаж', icon: 'TrendingUp' },
+                  { value: '5 лет', label: 'На рынке', icon: 'Award' }
+                ].map((stat, i) => (
+                  <div key={i} className="group">
+                    <div className="bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all">
+                      <Icon name={stat.icon} size={24} className="text-primary mb-3 group-hover:scale-110 transition-transform" />
+                      <div className="text-3xl font-bold gradient-text mb-2">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs text-muted-foreground font-medium leading-tight">
+                        {stat.label}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              <div 
+                ref={sliderRef}
+                className="md:hidden flex gap-4 overflow-x-scroll scrollbar-hide snap-x snap-mandatory"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {[
+                  { value: '50+', label: 'Успешных проектов', icon: 'Target' },
+                  { value: '180%', label: 'Средний рост продаж', icon: 'TrendingUp' },
+                  { value: '5 лет', label: 'На рынке', icon: 'Award' },
+                  { value: '50+', label: 'Успешных проектов', icon: 'Target' },
+                  { value: '180%', label: 'Средний рост продаж', icon: 'TrendingUp' },
+                  { value: '5 лет', label: 'На рынке', icon: 'Award' }
+                ].map((stat, i) => (
+                  <div key={i} className="flex-shrink-0 w-[280px] snap-start">
+                    <div className="bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-2xl p-6">
+                      <Icon name={stat.icon} size={24} className="text-primary mb-3" />
+                      <div className="text-3xl font-bold gradient-text mb-2">
+                        {stat.value}
+                      </div>
+                      <div className="text-sm text-muted-foreground font-medium leading-tight">
+                        {stat.label}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
