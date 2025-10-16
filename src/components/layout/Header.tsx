@@ -141,8 +141,15 @@ export default function Header() {
           <div className={`hidden md:flex items-center gap-1 sm:gap-2 md:gap-6 px-3 sm:px-4 md:px-8 py-3 transition-all duration-500 ${
             isScrolled 
               ? 'bg-transparent rounded-none' 
-              : 'bg-white/50 backdrop-blur-2xl border border-[#81D8D0]/20 shadow-lg rounded-full'
-          }`}>
+              : 'backdrop-blur-2xl shadow-lg rounded-full'
+          }`}
+          style={!isScrolled ? { 
+            backgroundColor: 'var(--theme-card)', 
+            borderColor: 'color-mix(in srgb, var(--theme-primary) 20%, transparent)', 
+            borderWidth: '1px', 
+            borderStyle: 'solid' 
+          } : {}}
+          >
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} className="nav-link">
                 {link.label}
