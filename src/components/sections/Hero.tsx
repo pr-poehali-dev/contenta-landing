@@ -26,8 +26,8 @@ export default function Hero() {
         ))}
       </div>
       
-      <div className="container mx-auto relative z-10 h-full flex items-center px-4">
-        <div className="max-w-5xl mx-auto text-center w-full">
+      <div className="container mx-auto relative z-10 h-full flex items-center px-4 hero-container">
+        <div className="max-w-5xl mx-auto text-center w-full hero-content">
           <div className="hero-badge">
             <div className="pulse-dot" />
             <span>Стратегическое агентство контент-маркетинга</span>
@@ -101,10 +101,20 @@ export default function Hero() {
 
         @media (max-width: 768px) {
           .hero-fullscreen {
-            padding-top: 3rem;
-            padding-bottom: 8rem;
+            padding-top: 0;
+            padding-bottom: 7rem;
             align-items: flex-start;
-            padding-top: 15vh;
+            justify-content: flex-start;
+            min-height: 100vh;
+          }
+
+          .hero-container {
+            padding-top: 1rem;
+            align-items: flex-start !important;
+          }
+
+          .hero-content {
+            margin-top: 0;
           }
         }
 
@@ -223,6 +233,15 @@ export default function Hero() {
           animation: fade-in-down 0.8s ease-out;
         }
 
+        @media (max-width: 768px) {
+          .hero-badge {
+            font-size: 0.7rem;
+            padding: 0.5rem 1rem;
+            margin-bottom: 1rem;
+            gap: 0.5rem;
+          }
+        }
+
         .pulse-dot {
           width: 8px;
           height: 8px;
@@ -243,12 +262,20 @@ export default function Hero() {
         }
 
         .hero-title {
-          font-size: clamp(2.5rem, 8vw, 6rem);
+          font-size: clamp(2rem, 8vw, 6rem);
           font-weight: 800;
           line-height: 1.1;
           letter-spacing: -0.02em;
           margin-bottom: 1.5rem;
           animation: fade-in-up 0.8s ease-out 0.2s both;
+        }
+
+        @media (max-width: 768px) {
+          .hero-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+          }
         }
 
         .hero-highlight {
@@ -285,12 +312,20 @@ export default function Hero() {
         }
 
         .hero-subtitle {
-          font-size: clamp(1.125rem, 2vw, 1.5rem);
+          font-size: clamp(1rem, 2vw, 1.5rem);
           color: hsl(var(--muted-foreground));
           max-width: 48rem;
           margin: 0 auto 2.5rem;
           line-height: 1.6;
           animation: fade-in-up 0.8s ease-out 0.4s both;
+        }
+
+        @media (max-width: 768px) {
+          .hero-subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+          }
         }
 
         .hero-cta {
@@ -301,6 +336,13 @@ export default function Hero() {
           align-items: center;
           margin-bottom: 4rem;
           animation: fade-in-up 0.8s ease-out 0.6s both;
+        }
+
+        @media (max-width: 768px) {
+          .hero-cta {
+            margin-bottom: 2rem;
+            gap: 0.75rem;
+          }
         }
 
         @media (min-width: 640px) {
@@ -314,6 +356,13 @@ export default function Hero() {
           padding: 1.5rem 2rem;
           height: auto;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (max-width: 768px) {
+          .hero-button {
+            font-size: 0.9rem;
+            padding: 1rem 1.5rem;
+          }
         }
 
         .hero-button.primary {
@@ -356,7 +405,7 @@ export default function Hero() {
         .hero-stats {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 1rem;
+          gap: 0.75rem;
           max-width: 56rem;
           margin: 0 auto;
           animation: fade-in-up 0.8s ease-out 0.8s both;
@@ -372,8 +421,8 @@ export default function Hero() {
         .stat-card {
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
           border: 1px solid rgba(139, 92, 246, 0.2);
-          border-radius: 1.5rem;
-          padding: 1rem;
+          border-radius: 1rem;
+          padding: 0.75rem;
           backdrop-filter: blur(10px);
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -381,6 +430,7 @@ export default function Hero() {
         @media (min-width: 768px) {
           .stat-card {
             padding: 1.5rem;
+            border-radius: 1.5rem;
           }
         }
 
@@ -392,10 +442,17 @@ export default function Hero() {
         }
 
         .stat-value {
-          font-size: clamp(2rem, 5vw, 3rem);
+          font-size: clamp(1.5rem, 5vw, 3rem);
           font-weight: 800;
           margin-bottom: 0.5rem;
           transition: transform 0.4s ease;
+        }
+
+        @media (max-width: 768px) {
+          .stat-value {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+          }
         }
 
         .stat-card:hover .stat-value {
@@ -406,6 +463,12 @@ export default function Hero() {
           font-size: 0.875rem;
           color: hsl(var(--muted-foreground));
           font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+          .stat-label {
+            font-size: 0.7rem;
+          }
         }
 
         .hero-scroll-indicator {
