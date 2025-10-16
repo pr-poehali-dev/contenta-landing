@@ -66,7 +66,7 @@ export default function Hero() {
             ].map((stat, i) => (
               <div key={i} className="relative group">
                 <div className="absolute inset-0 rounded-xl blur-lg transition-all" style={{ backgroundColor: 'color-mix(in srgb, var(--theme-primary) 5%, transparent)' }} />
-                <div className="relative backdrop-blur-sm rounded-xl p-5 md:p-7 hover:shadow-lg transition-all" style={{ backgroundColor: 'color-mix(in srgb, white 60%, transparent)', borderColor: 'color-mix(in srgb, var(--theme-primary) 20%, transparent)', borderWidth: '1px', borderStyle: 'solid' }}>
+                <div className="relative backdrop-blur-sm rounded-xl p-5 md:p-7 hover:shadow-lg transition-all" style={{ backgroundColor: 'var(--theme-card)', borderColor: 'color-mix(in srgb, var(--theme-primary) 20%, transparent)', borderWidth: '1px', borderStyle: 'solid' }}>
                   <div className="text-3xl md:text-5xl font-bold mb-2" style={{ color: 'var(--theme-text-dark)' }}>
                     {stat.value}
                   </div>
