@@ -9,7 +9,7 @@ const cases = [
     image: 'https://cdn.poehali.dev/projects/0fa58d5a-5be2-4481-9265-3f7bfedad1ff/files/513542d9-0b0f-46c6-be5a-72fed9b63645.jpg',
     metrics: '+180%',
     description: 'Увеличили продажи бутика на 180% за 4 месяца',
-    gradient: 'from-pink-500 to-rose-500'
+    color: '#81D8D0'
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const cases = [
     image: 'https://cdn.poehali.dev/projects/0fa58d5a-5be2-4481-9265-3f7bfedad1ff/files/3cc11819-dfb7-42d1-8d66-76aef0254e86.jpg',
     metrics: '+240%',
     description: 'Рост заявок в детейлинг-студию на 240%',
-    gradient: 'from-blue-500 to-cyan-500'
+    color: '#70F0DC'
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const cases = [
     image: 'https://cdn.poehali.dev/projects/0fa58d5a-5be2-4481-9265-3f7bfedad1ff/files/f7255a3b-0be3-4e18-8327-21ce251bd89d.jpg',
     metrics: '+95',
     description: 'Новых клиентов для юридического сервиса',
-    gradient: 'from-purple-500 to-indigo-500'
+    color: '#2D5F6E'
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const cases = [
     image: 'https://cdn.poehali.dev/projects/0fa58d5a-5be2-4481-9265-3f7bfedad1ff/files/513542d9-0b0f-46c6-be5a-72fed9b63645.jpg',
     metrics: '+300%',
     description: 'Увеличили охваты благотворительного фонда',
-    gradient: 'from-emerald-500 to-teal-500'
+    color: '#EADAC1'
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const cases = [
     image: 'https://cdn.poehali.dev/projects/0fa58d5a-5be2-4481-9265-3f7bfedad1ff/files/3cc11819-dfb7-42d1-8d66-76aef0254e86.jpg',
     metrics: '+165%',
     description: 'Рост выручки ресторана через SMM',
-    gradient: 'from-orange-500 to-red-500'
+    color: '#81D8D0'
   }
 ];
 
@@ -67,14 +67,14 @@ export default function Cases() {
     : cases.filter(c => c.category === selectedCategory);
 
   return (
-    <section id="cases" className="py-12 md:py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background overflow-hidden">
+    <section id="cases" className="py-12 md:py-24 px-4 bg-white overflow-hidden">
       <div className="container mx-auto">
         <div className="text-center mb-8 md:mb-12">
-          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 rounded-full text-xs md:text-sm text-primary font-medium mb-3 md:mb-4">
+          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-[#81D8D0]/10 rounded-full text-xs md:text-sm text-[#2D5F6E] font-medium mb-3 md:mb-4">
             Наши результаты
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-6">Кейсы и результаты</h2>
-          <p className="text-sm md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-10 max-w-2xl mx-auto px-4">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-6 text-[#2D5F6E]">Кейсы и результаты</h2>
+          <p className="text-sm md:text-lg lg:text-xl text-[#474C50] mb-6 md:mb-10 max-w-2xl mx-auto px-4">
             Реальные проекты с измеримыми результатами
           </p>
 
@@ -114,18 +114,19 @@ export default function Cases() {
                 }`}
               />
               
-              <div className={`absolute inset-0 bg-gradient-to-br ${caseItem.gradient} opacity-60 mix-blend-multiply transition-opacity duration-500`} />
+              <div className="absolute inset-0 opacity-60 mix-blend-multiply transition-opacity duration-500" style={{ backgroundColor: caseItem.color }} />
               
               <div
                 className={`absolute bottom-0 left-0 text-white font-bold whitespace-nowrap transition-all duration-500 ease-in-out ${
                   hoveredCase === caseItem.id
-                    ? 'md:top-auto md:bottom-0 md:left-0 md:w-full md:text-center md:transform-none md:-skew-x-3 md:bg-black/50 md:text-2xl md:py-4'
-                    : 'md:origin-top-left md:-rotate-90 md:bottom-0 md:left-0 md:bg-primary/75 md:text-base md:py-2 md:px-4 md:min-w-full'
-                } bg-primary/75 py-2 px-4 text-base w-full text-center`}
+                    ? 'md:top-auto md:bottom-0 md:left-0 md:w-full md:text-center md:transform-none md:-skew-x-3 md:bg-[#2D5F6E]/80 md:text-2xl md:py-4'
+                    : 'md:origin-top-left md:-rotate-90 md:bottom-0 md:left-0 md:text-base md:py-2 md:px-4 md:min-w-full'
+                } py-2 px-4 text-base w-full text-center`}
+                style={{ backgroundColor: hoveredCase === caseItem.id ? undefined : `${caseItem.color}CC` }}
               >
                 {hoveredCase === caseItem.id ? (
                   <div className="md:block hidden">
-                    <div className={`text-4xl font-bold bg-gradient-to-r ${caseItem.gradient} bg-clip-text text-transparent mb-2`}>
+                    <div className="text-4xl font-bold mb-2" style={{ color: '#81D8D0' }}>
                       {caseItem.metrics}
                     </div>
                     <div className="text-sm text-white/90">{caseItem.description}</div>
