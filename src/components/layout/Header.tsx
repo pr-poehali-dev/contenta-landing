@@ -1,18 +1,33 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useEffect, useState } from 'react';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
 
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.theme-menu-container')) {
+        setIsThemeMenuOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   const navLinks = [
@@ -37,16 +52,88 @@ export default function Header() {
         <nav className={`container mx-auto px-4 flex items-center transition-all duration-500 ${
           isScrolled ? 'h-16 justify-between' : 'h-20 justify-between'
         }`}>
-          <div className={`flex items-center gap-3 transition-all duration-500 ${
-            isScrolled ? 'scale-90' : 'scale-100'
-          }`}>
-            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#81D8D0] to-[#2D5F6E] flex items-center justify-center shadow-lg shadow-[#81D8D0]/20">
-              <span className="text-white font-bold text-base">CT</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold tracking-tight">ContenTA</span>
-              <span className="text-xs text-muted-foreground -mt-1">Studio</span>
-            </div>
+          <div className="relative theme-menu-container">
+            <button
+              onClick={() => setIsThemeMenuOpen(!isThemeMenuOpen)}
+              className={`flex items-center gap-3 transition-all duration-500 hover:opacity-80 ${
+                isScrolled ? 'scale-90' : 'scale-100'
+              }`}
+            >
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center shadow-lg" style={{ 
+                background: `linear-gradient(to bottom right, var(--theme-primary), var(--theme-accent))`,
+                boxShadow: `0 10px 25px -5px ${theme === 'dark' ? 'rgba(16, 185, 129, 0.2)' : 'rgba(129, 216, 208, 0.2)'}`
+              }}>
+                <span className="text-white font-bold text-base">CT</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold tracking-tight" style={{ color: 'var(--theme-text-dark)' }}>ContenTA</span>
+                <span className="text-xs -mt-1" style={{ color: 'var(--theme-text)' }}>Studio</span>
+              </div>
+            </button>
+
+            {isThemeMenuOpen && (
+              <div className="absolute top-full left-0 mt-2 w-64 rounded-2xl shadow-2xl border overflow-hidden z-50"
+                style={{ 
+                  backgroundColor: theme === 'dark' ? '#1E293B' : 'white',
+                  borderColor: theme === 'dark' ? '#334155' : '#E5E7EB'
+                }}
+              >
+                <div className="p-3">
+                  <p className="text-xs font-semibold mb-3 px-2" style={{ color: 'var(--theme-text)' }}>Выберите тему</p>
+                  
+                  <button
+                    onClick={() => { setTheme('dark'); setIsThemeMenuOpen(false); }}
+                    className="w-full flex items-center gap-3 p-3 rounded-xl transition-all hover:scale-[1.02]"
+                    style={{ 
+                      backgroundColor: theme === 'dark' ? 'rgba(16, 185, 129, 0.1)' : '#F9FAFB',
+                      border: theme === 'dark' ? '2px solid #10B981' : '2px solid transparent'
+                    }}
+                  >
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #10B981, #059669)' }}>
+                      <Icon name="Moon" size={20} className="text-white" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <div className="font-semibold text-sm" style={{ color: theme === 'dark' ? '#F1F5F9' : '#1F2937' }}>Тёмная тема</div>
+                      <div className="text-xs" style={{ color: theme === 'dark' ? '#94A3B8' : '#6B7280' }}>Зелёные акценты</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => { setTheme('tiffany'); setIsThemeMenuOpen(false); }}
+                    className="w-full flex items-center gap-3 p-3 rounded-xl transition-all hover:scale-[1.02] mt-2"
+                    style={{ 
+                      backgroundColor: theme === 'tiffany' ? 'rgba(129, 216, 208, 0.1)' : '#F9FAFB',
+                      border: theme === 'tiffany' ? '2px solid #81D8D0' : '2px solid transparent'
+                    }}
+                  >
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #81D8D0, #70F0DC)' }}>
+                      <Icon name="Sparkles" size={20} className="text-white" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <div className="font-semibold text-sm" style={{ color: theme === 'dark' ? '#F1F5F9' : '#1F2937' }}>Tiffany Blue</div>
+                      <div className="text-xs" style={{ color: theme === 'dark' ? '#94A3B8' : '#6B7280' }}>Элегантная палитра</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => { setTheme('purple'); setIsThemeMenuOpen(false); }}
+                    className="w-full flex items-center gap-3 p-3 rounded-xl transition-all hover:scale-[1.02] mt-2"
+                    style={{ 
+                      backgroundColor: theme === 'purple' ? 'rgba(168, 85, 247, 0.1)' : '#F9FAFB',
+                      border: theme === 'purple' ? '2px solid #A855F7' : '2px solid transparent'
+                    }}
+                  >
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #A855F7, #C084FC)' }}>
+                      <Icon name="Zap" size={20} className="text-white" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <div className="font-semibold text-sm" style={{ color: theme === 'dark' ? '#F1F5F9' : '#1F2937' }}>Purple Glow</div>
+                      <div className="text-xs" style={{ color: theme === 'dark' ? '#94A3B8' : '#6B7280' }}>Популярная тема</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className={`hidden md:flex items-center gap-1 sm:gap-2 md:gap-6 px-3 sm:px-4 md:px-8 py-3 transition-all duration-500 ${

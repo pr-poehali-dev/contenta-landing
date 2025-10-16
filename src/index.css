@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --theme-primary: #81d8d0;
+  --theme-secondary: #70f0dc;
+  --theme-accent: #2d5f6e;
+  --theme-warm: #eadac1;
+  --theme-bg: #f8f7f5;
+  --theme-text: #474c50;
+  --theme-text-dark: #2d5f6e;
+}
+
 @layer base {
   :root {
     --background: 40 40% 97%;
