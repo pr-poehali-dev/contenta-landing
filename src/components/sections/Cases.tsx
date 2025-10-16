@@ -8,53 +8,62 @@ const cases = [
     category: 'fashion',
     title: 'Бутик премиальной одежды',
     description: 'Увеличили продажи на 180% за 4 месяца через контент-воронки в Instagram и Telegram',
-    metrics: '+180% продаж',
-    subMetrics: '+5.2K подписчиков',
+    metrics: '+180%',
+    subMetrics: 'продаж',
+    details: '+5.2K подписчиков за 4 месяца',
     image: 'https://cdn.poehali.dev/projects/0fa58d5a-5be2-4481-9265-3f7bfedad1ff/files/513542d9-0b0f-46c6-be5a-72fed9b63645.jpg',
-    tags: ['SMM', 'Контент-стратегия']
+    tags: ['SMM', 'Контент-стратегия'],
+    gradient: 'from-pink-500 to-rose-500'
   },
   {
     id: 2,
     category: 'auto',
     title: 'Детейлинг-студия премиум класса',
     description: 'Создали узнаваемый бренд через визуальный сторителлинг и SMM-стратегию',
-    metrics: '+240% заявок',
-    subMetrics: 'ER 12.4%',
+    metrics: '+240%',
+    subMetrics: 'заявок',
+    details: 'ER 12.4% вовлечённости',
     image: 'https://cdn.poehali.dev/projects/0fa58d5a-5be2-4481-9265-3f7bfedad1ff/files/3cc11819-dfb7-42d1-8d66-76aef0254e86.jpg',
-    tags: ['Визуальный контент', 'SMM']
+    tags: ['Визуальный контент', 'SMM'],
+    gradient: 'from-blue-500 to-cyan-500'
   },
   {
     id: 3,
     category: 'legal',
     title: 'Юридический сервис для бизнеса',
     description: 'Разработали экспертный контент для VC.ru и Telegram, привлекли целевых клиентов',
-    metrics: '+95 клиентов',
-    subMetrics: '8.7K просмотров',
+    metrics: '+95',
+    subMetrics: 'клиентов',
+    details: '8.7K просмотров статей',
     image: 'https://cdn.poehali.dev/projects/0fa58d5a-5be2-4481-9265-3f7bfedad1ff/files/f7255a3b-0be3-4e18-8327-21ce251bd89d.jpg',
-    tags: ['Копирайтинг', 'PR']
+    tags: ['Копирайтинг', 'PR'],
+    gradient: 'from-purple-500 to-indigo-500'
   },
   {
     id: 4,
     category: 'charity',
     title: 'Благотворительный фонд',
     description: 'Выстроили коммуникационную стратегию и увеличили охваты в 3 раза',
-    metrics: '+300% охватов',
-    subMetrics: '15K+ вовлечений',
+    metrics: '+300%',
+    subMetrics: 'охватов',
+    details: '15K+ вовлечений',
     image: 'https://cdn.poehali.dev/projects/0fa58d5a-5be2-4481-9265-3f7bfedad1ff/files/513542d9-0b0f-46c6-be5a-72fed9b63645.jpg',
-    tags: ['Стратегия', 'SMM']
+    tags: ['Стратегия', 'SMM'],
+    gradient: 'from-emerald-500 to-teal-500'
   }
 ];
 
 const categories = [
-  { id: 'all', label: 'Все проекты', color: 'primary' },
-  { id: 'fashion', label: 'Fashion', color: 'pink' },
-  { id: 'auto', label: 'Авто', color: 'blue' },
-  { id: 'legal', label: 'Юридические', color: 'purple' },
-  { id: 'charity', label: 'Благотворительность', color: 'indigo' }
+  { id: 'all', label: 'Все проекты' },
+  { id: 'fashion', label: 'Fashion' },
+  { id: 'auto', label: 'Авто' },
+  { id: 'legal', label: 'Юридические' },
+  { id: 'charity', label: 'Благотворительность' }
 ];
 
 export default function Cases() {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [expandedCase, setExpandedCase] = useState<number | null>(1);
 
   const filteredCases = selectedCategory === 'all' 
     ? cases 
@@ -90,62 +99,229 @@ export default function Cases() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="accordion-gallery max-w-7xl mx-auto">
           {filteredCases.map((caseItem) => (
             <div
               key={caseItem.id}
-              className="group relative bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-3xl overflow-hidden hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2"
+              className={`accordion-item ${expandedCase === caseItem.id ? 'expanded' : ''}`}
+              onClick={() => setExpandedCase(expandedCase === caseItem.id ? null : caseItem.id)}
             >
-              <div className="relative aspect-video overflow-hidden">
-                <img
-                  src={caseItem.image}
-                  alt={caseItem.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60" />
-                <div className="absolute top-4 left-4 flex gap-2">
-                  {caseItem.tags.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 bg-background/90 backdrop-blur-sm text-xs font-semibold rounded-full border border-border/50">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="p-8">
-                <div className="inline-block px-3 py-1 bg-primary/10 rounded-full text-xs text-primary font-semibold mb-3 uppercase tracking-wider">
-                  {caseItem.category}
+              <div className="accordion-item-inner">
+                <div 
+                  className="accordion-image"
+                  style={{ backgroundImage: `url(${caseItem.image})` }}
+                >
+                  <div className="accordion-overlay" />
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                  {caseItem.title}
-                </h3>
-                
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {caseItem.description}
-                </p>
+                <div className="accordion-content">
+                  <div className="accordion-compact">
+                    <div className="flex gap-2 mb-3">
+                      {caseItem.tags.map((tag, i) => (
+                        <span key={i} className="text-xs font-semibold px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold mb-2">{caseItem.title}</h3>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl md:text-4xl font-bold">{caseItem.metrics}</span>
+                      <span className="text-sm opacity-90">{caseItem.subMetrics}</span>
+                    </div>
+                  </div>
 
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="flex-1 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-xl p-4 border border-purple-500/20">
-                    <div className="text-2xl font-bold gradient-text">{caseItem.metrics}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{caseItem.subMetrics}</div>
+                  <div className="accordion-expanded">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {caseItem.tags.map((tag, i) => (
+                        <span key={i} className="text-xs font-semibold px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className={`inline-block px-3 py-1 bg-gradient-to-r ${caseItem.gradient} text-white rounded-full text-xs font-semibold mb-3 uppercase tracking-wider`}>
+                      {caseItem.category}
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4">{caseItem.title}</h3>
+                    <p className="text-sm md:text-base mb-4 opacity-90 leading-relaxed">
+                      {caseItem.description}
+                    </p>
+                    <div className="flex items-center gap-6 mb-6">
+                      <div>
+                        <div className="text-4xl md:text-5xl font-bold">{caseItem.metrics}</div>
+                        <div className="text-sm opacity-90">{caseItem.subMetrics}</div>
+                      </div>
+                      <div className="h-12 w-px bg-white/30" />
+                      <div className="text-sm opacity-90">{caseItem.details}</div>
+                    </div>
+                    <Button 
+                      variant="secondary" 
+                      className="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-white"
+                    >
+                      Читать кейс полностью
+                      <Icon name="ArrowRight" size={18} className="ml-2" />
+                    </Button>
                   </div>
                 </div>
 
-                <Button 
-                  variant="ghost" 
-                  className="group-hover:text-primary transition-colors p-0 h-auto font-semibold"
-                >
-                  Читать кейс полностью
-                  <Icon name="ArrowRight" size={18} className="ml-2 group-hover:translate-x-2 transition-transform" />
-                </Button>
+                <div className="accordion-icon">
+                  <Icon name={expandedCase === caseItem.id ? 'Minimize2' : 'Maximize2'} size={24} />
+                </div>
               </div>
-
-              <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
         </div>
       </div>
+
+      <style>{`
+        .accordion-gallery {
+          display: flex;
+          gap: 1rem;
+          height: 600px;
+          perspective: 1000px;
+        }
+
+        .accordion-item {
+          position: relative;
+          flex: 1;
+          min-width: 80px;
+          border-radius: 1.5rem;
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-item:hover {
+          flex: 1.1;
+          transform: translateY(-4px);
+          box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+        }
+
+        .accordion-item.expanded {
+          flex: 3;
+          box-shadow: 0 25px 80px rgba(139, 92, 246, 0.4);
+        }
+
+        .accordion-item-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        .accordion-image {
+          position: absolute;
+          inset: 0;
+          background-size: cover;
+          background-position: center;
+          transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-item.expanded .accordion-image {
+          transform: scale(1.05);
+        }
+
+        .accordion-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+          transition: background 0.4s ease;
+        }
+
+        .accordion-item.expanded .accordion-overlay {
+          background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 100%);
+        }
+
+        .accordion-content {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 2rem;
+          color: white;
+          z-index: 10;
+        }
+
+        .accordion-compact {
+          opacity: 1;
+          transition: opacity 0.3s ease;
+        }
+
+        .accordion-item.expanded .accordion-compact {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .accordion-expanded {
+          opacity: 0;
+          transition: opacity 0.4s ease 0.2s;
+          pointer-events: none;
+        }
+
+        .accordion-item.expanded .accordion-expanded {
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .accordion-icon {
+          position: absolute;
+          top: 1.5rem;
+          right: 1.5rem;
+          width: 2.5rem;
+          height: 2.5rem;
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-radius: 0.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          z-index: 20;
+          transition: all 0.3s ease;
+          opacity: 0;
+        }
+
+        .accordion-item:hover .accordion-icon,
+        .accordion-item.expanded .accordion-icon {
+          opacity: 1;
+        }
+
+        .accordion-icon:hover {
+          background: rgba(255, 255, 255, 0.3);
+          transform: scale(1.1);
+        }
+
+        @media (max-width: 1024px) {
+          .accordion-gallery {
+            flex-direction: column;
+            height: auto;
+            gap: 1rem;
+          }
+
+          .accordion-item {
+            min-height: 300px;
+            flex: none;
+          }
+
+          .accordion-item.expanded {
+            min-height: 500px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .accordion-content {
+            padding: 1.5rem;
+          }
+
+          .accordion-item {
+            min-height: 250px;
+          }
+
+          .accordion-item.expanded {
+            min-height: 450px;
+          }
+        }
+      `}</style>
     </section>
   );
 }
