@@ -67,14 +67,14 @@ export default function Cases() {
     : cases.filter(c => c.category === selectedCategory);
 
   return (
-    <section id="cases" className="py-12 md:py-24 px-4 bg-white overflow-hidden">
+    <section id="cases" className="py-12 md:py-24 px-4 overflow-hidden" style={{ backgroundColor: 'var(--theme-bg)' }}>
       <div className="container mx-auto">
         <div className="text-center mb-8 md:mb-12">
-          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-[#81D8D0]/10 rounded-full text-xs md:text-sm text-[#2D5F6E] font-medium mb-3 md:mb-4">
+          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4" style={{ backgroundColor: 'color-mix(in srgb, var(--theme-primary) 10%, transparent)', color: 'var(--theme-text-dark)' }}>
             Наши результаты
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-6 text-[#2D5F6E]">Кейсы и результаты</h2>
-          <p className="text-sm md:text-lg lg:text-xl text-[#474C50] mb-6 md:mb-10 max-w-2xl mx-auto px-4">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-6" style={{ color: 'var(--theme-text-dark)' }}>Кейсы и результаты</h2>
+          <p className="text-sm md:text-lg lg:text-xl mb-6 md:mb-10 max-w-2xl mx-auto px-4" style={{ color: 'var(--theme-text)' }}>
             Реальные проекты с измеримыми результатами
           </p>
 
@@ -114,7 +114,7 @@ export default function Cases() {
                 }`}
               />
               
-              <div className="absolute inset-0 opacity-60 mix-blend-multiply transition-opacity duration-500" style={{ backgroundColor: caseItem.color }} />
+              <div className="absolute inset-0 opacity-60 mix-blend-multiply transition-opacity duration-500" style={{ backgroundColor: 'var(--theme-primary)' }} />
               
               <div
                 className={`absolute bottom-0 left-0 text-white font-bold whitespace-nowrap transition-all duration-500 ease-in-out ${
@@ -126,7 +126,7 @@ export default function Cases() {
               >
                 {hoveredCase === caseItem.id ? (
                   <div className="md:block hidden">
-                    <div className="text-4xl font-bold mb-2" style={{ color: '#81D8D0' }}>
+                    <div className="text-4xl font-bold mb-2" style={{ color: 'var(--theme-accent)' }}>
                       {caseItem.metrics}
                     </div>
                     <div className="text-sm text-white/90">{caseItem.description}</div>
