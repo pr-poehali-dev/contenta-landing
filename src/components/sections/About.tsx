@@ -35,7 +35,7 @@ export default function About() {
       
       <div className="container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-          <div className="order-2 lg:order-1">
+          <div className="order-1 lg:order-1">
             <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm text-primary font-medium mb-6">
               О студии
             </div>
@@ -65,6 +65,21 @@ export default function About() {
                   «Работали с fashion-бутиками, автосервисами, юридическими компаниями, 
                   благотворительными фондами — понимаем, как говорить с любой аудиторией»
                 </p>
+              </div>
+
+              <div className="lg:hidden mt-8">
+                <div className="aspect-square rounded-3xl bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 p-1 shadow-2xl shadow-purple-500/20">
+                  <div className="w-full h-full bg-card rounded-3xl flex flex-col items-center justify-center p-8 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-blue-500/5 to-pink-500/5" />
+                    <Icon name="Sparkles" size={80} className="text-primary/20 mb-4" />
+                    <div className="text-center relative z-10">
+                      <div className="text-xl font-bold mb-2">Контент как союз</div>
+                      <p className="text-sm text-muted-foreground">
+                        Мы не ведём соцсети,<br />мы входим в команду
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -118,7 +133,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 relative">
+          <div className="order-1 lg:order-2 relative hidden lg:block">
             <div className="relative">
               <div className="aspect-square rounded-3xl bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 p-1 shadow-2xl shadow-purple-500/20">
                 <div className="w-full h-full bg-card rounded-3xl flex flex-col items-center justify-center p-12 relative overflow-hidden">
