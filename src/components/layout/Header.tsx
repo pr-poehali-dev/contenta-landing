@@ -18,8 +18,7 @@ export default function Header() {
   const navLinks = [
     { href: '#services', label: 'Услуги' },
     { href: '#cases', label: 'Кейсы' },
-    { href: '#about', label: 'О нас' },
-    { href: '#blog', label: 'Блог' }
+    { href: '#about', label: 'О студии' }
   ];
 
   const handleLinkClick = () => {

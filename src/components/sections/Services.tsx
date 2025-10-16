@@ -7,43 +7,43 @@ const services = [
     title: 'Контент-стратегия',
     description: 'Разрабатываем системный подход к контенту: аудит, позиционирование, воронки и медиа-архитектуру бренда',
     icon: 'Target',
-    gradient: 'from-purple-500 to-pink-500',
-    color: 'purple'
+    features: ['Аудит контента', 'Позиционирование', 'Контент-воронки', 'Медиа-архитектура'],
+    gradient: 'from-purple-500 to-pink-500'
   },
   {
-    title: 'SMM и управление сообществами',
+    title: 'SMM и сообщества',
     description: 'Создаём живые сообщества в Telegram, VK и других платформах. Контент, который вовлекает и продаёт',
     icon: 'Users',
-    gradient: 'from-blue-500 to-purple-500',
-    color: 'blue'
+    features: ['Telegram-каналы', 'VK сообщества', 'Контент-планы', 'Вовлечение'],
+    gradient: 'from-blue-500 to-purple-500'
   },
   {
-    title: 'Визуальный контент и сторителлинг',
-    description: 'Разрабатываем визуальную систему бренда: от креативов до видео. Рассказываем истории, которые запоминаются',
+    title: 'Визуальный контент',
+    description: 'Разрабатываем визуальную систему бренда: от креативов до видео. Истории, которые запоминаются',
     icon: 'Sparkles',
-    gradient: 'from-pink-500 to-orange-500',
-    color: 'pink'
-  },
-  {
-    title: 'Telegram / VK продвижение',
-    description: 'Превращаем каналы в медиа-активы бренда с контент-воронками и стратегией привлечения аудитории',
-    icon: 'MessageCircle',
-    gradient: 'from-indigo-500 to-blue-500',
-    color: 'indigo'
+    features: ['Stories', 'Reels', 'Дизайн-система', 'Видео-контент'],
+    gradient: 'from-pink-500 to-orange-500'
   },
   {
     title: 'Таргет и воронки',
     description: 'Настраиваем таргетированную рекламу с применением нейромаркетинга и поведенческих триггеров',
     icon: 'TrendingUp',
-    gradient: 'from-purple-500 to-indigo-500',
-    color: 'purple'
+    features: ['VK Реклама', 'MyTarget', 'Воронки продаж', 'Триггеры'],
+    gradient: 'from-purple-500 to-indigo-500'
   },
   {
-    title: 'Копирайтинг и медиатексты',
+    title: 'Копирайтинг',
     description: 'Пишем тексты, которые продают и создают доверие. От постов до лонгридов и PR-материалов',
     icon: 'PenTool',
-    gradient: 'from-orange-500 to-pink-500',
-    color: 'orange'
+    features: ['Посты', 'Лонгриды', 'Сценарии', 'PR-тексты'],
+    gradient: 'from-orange-500 to-pink-500'
+  },
+  {
+    title: 'Аналитика и рост',
+    description: 'Отслеживаем метрики, анализируем результаты, оптимизируем стратегию для максимального эффекта',
+    icon: 'BarChart',
+    features: ['Метрики', 'A/B тесты', 'Отчёты', 'Оптимизация'],
+    gradient: 'from-indigo-500 to-blue-500'
   }
 ];
 
@@ -59,17 +59,23 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-12 md:py-24 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
+    <section id="services" className="py-16 md:py-24 lg:py-32 px-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-background to-background" />
+      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-l from-purple-500/10 to-transparent rounded-full blur-3xl" />
       
       <div className="container mx-auto relative z-10">
-        <div className="text-center mb-8 md:mb-16">
-          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 rounded-full text-xs md:text-sm text-primary font-medium mb-3 md:mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium mb-4 text-primary">
             Что мы делаем
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-6">Наши услуги</h2>
-          <p className="text-sm md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-            Комплексные решения для вашего бренда. Каждый материал работает на цель
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Комплексные{' '}
+            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              решения
+            </span>
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            От стратегии и производства контента до таргета и аналитики. Каждый материал работает на цель
           </p>
         </div>
 
@@ -77,36 +83,33 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-3xl p-8 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2"
+              className="group relative"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-[0.03] rounded-3xl transition-opacity duration-500`} />
+              <div className={`absolute -inset-1 bg-gradient-to-br ${service.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-all duration-500`} />
               
-              <div className="relative z-10">
-                <div className="mb-6 relative">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg group-hover:shadow-2xl group-hover:shadow-${service.color}-500/30 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
-                    <Icon name={service.icon} size={32} className="text-white" />
+              <div className="relative bg-card border border-border/50 rounded-3xl p-6 md:p-8 hover:border-primary/30 transition-all h-full flex flex-col">
+                <div className="mb-5">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all`}>
+                    <Icon name={service.icon} size={28} className="text-white" />
                   </div>
-                  <div className={`absolute -inset-4 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 rounded-full blur-2xl transition-opacity duration-500`} />
                 </div>
 
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-5 flex-1">
                   {service.description}
                 </p>
 
-                <Button 
-                  variant="ghost" 
-                  className="group-hover:text-primary transition-colors p-0 h-auto font-semibold"
-                >
-                  Подробнее 
-                  <Icon name="ArrowRight" size={18} className="ml-2 group-hover:translate-x-2 transition-transform" />
-                </Button>
+                <div className="flex flex-wrap gap-2">
+                  {service.features.map((feature, i) => (
+                    <span key={i} className="text-xs px-3 py-1 bg-muted/50 rounded-full text-muted-foreground">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
               </div>
-
-              <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
         </div>
@@ -122,17 +125,17 @@ export default function Services() {
                   key={index}
                   className="w-full flex-shrink-0 px-2"
                 >
-                  <div className="relative bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-2xl p-5">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-[0.03] rounded-2xl`} />
+                  <div className="relative">
+                    <div className={`absolute -inset-1 bg-gradient-to-br ${service.gradient} rounded-2xl blur-lg opacity-20`} />
                     
-                    <div className="relative z-10">
-                      <div className="mb-4 relative">
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg`}>
+                    <div className="relative bg-card border border-border/50 rounded-2xl p-5">
+                      <div className="mb-4">
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center`}>
                           <Icon name={service.icon} size={24} className="text-white" />
                         </div>
                       </div>
 
-                      <h3 className="text-lg font-bold mb-3">
+                      <h3 className="text-lg font-bold mb-2">
                         {service.title}
                       </h3>
                       
@@ -140,13 +143,13 @@ export default function Services() {
                         {service.description}
                       </p>
 
-                      <Button 
-                        variant="ghost" 
-                        className="text-primary p-0 h-auto font-semibold text-sm"
-                      >
-                        Подробнее 
-                        <Icon name="ArrowRight" size={16} className="ml-2" />
-                      </Button>
+                      <div className="flex flex-wrap gap-1.5">
+                        {service.features.map((feature, i) => (
+                          <span key={i} className="text-[10px] px-2 py-1 bg-muted/50 rounded-full text-muted-foreground">
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -159,7 +162,7 @@ export default function Services() {
               variant="outline"
               size="icon"
               onClick={prevSlide}
-              className="rounded-full border-2 h-9 w-9"
+              className="rounded-full h-9 w-9"
             >
               <Icon name="ChevronLeft" size={20} />
             </Button>
@@ -182,11 +185,20 @@ export default function Services() {
               variant="outline"
               size="icon"
               onClick={nextSlide}
-              className="rounded-full border-2 h-9 w-9"
+              className="rounded-full h-9 w-9"
             >
               <Icon name="ChevronRight" size={20} />
             </Button>
           </div>
+        </div>
+
+        <div className="text-center mt-12 md:mt-16">
+          <Button size="lg" variant="outline" className="border-2 hover:border-primary group" asChild>
+            <a href="#contact">
+              Обсудить проект
+              <Icon name="ArrowRight" size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </Button>
         </div>
       </div>
     </section>
