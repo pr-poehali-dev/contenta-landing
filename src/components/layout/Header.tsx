@@ -23,19 +23,19 @@ export default function Header() {
       }`}
     >
       <nav className={`container mx-auto px-4 flex items-center transition-all duration-500 ${
-        isScrolled ? 'h-16 justify-between' : 'h-20 justify-center'
+        isScrolled ? 'h-16 justify-between' : 'h-20 justify-between'
       }`}>
-        {isScrolled && (
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
-              <span className="text-white font-bold text-sm">CT</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight">ContenTA</span>
-              <span className="text-xs text-muted-foreground -mt-1">Studio</span>
-            </div>
+        <div className={`flex items-center gap-3 transition-all duration-500 ${
+          isScrolled ? 'scale-90' : 'scale-100'
+        }`}>
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+            <span className="text-white font-bold text-base">CT</span>
           </div>
-        )}
+          <div className="flex flex-col">
+            <span className="text-2xl font-bold tracking-tight">ContenTA</span>
+            <span className="text-xs text-muted-foreground -mt-1">Studio</span>
+          </div>
+        </div>
 
         <div className={`flex items-center gap-1 sm:gap-2 md:gap-6 px-3 sm:px-4 md:px-8 py-3 transition-all duration-500 ${
           isScrolled 
@@ -60,14 +60,13 @@ export default function Header() {
           </a>
         </div>
 
-        {isScrolled && (
-          <Button 
-            className="bg-gradient-to-r from-purple-500 to-blue-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all text-sm" 
-            asChild
-          >
-            <a href="#contact">Связаться</a>
-          </Button>
-        )}
+        <Button 
+          size={isScrolled ? "default" : "lg"}
+          className="bg-gradient-to-r from-purple-500 to-blue-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all text-sm" 
+          asChild
+        >
+          <a href="#contact">Связаться</a>
+        </Button>
       </nav>
 
       <style>{`
