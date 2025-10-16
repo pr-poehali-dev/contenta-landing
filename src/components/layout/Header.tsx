@@ -72,7 +72,9 @@ export default function Header() {
             </button>
 
             {isThemeMenuOpen && (
-              <div className="absolute top-full left-0 mt-2 w-64 rounded-2xl shadow-2xl border overflow-hidden z-50"
+              <div className={`absolute left-0 w-64 rounded-2xl shadow-2xl border overflow-hidden z-50 ${
+                isScrolled ? 'top-full mt-2' : 'bottom-full mb-2'
+              }`}
                 style={{ 
                   backgroundColor: theme === 'dark' ? '#1E293B' : 'white',
                   borderColor: theme === 'dark' ? '#334155' : '#E5E7EB'
