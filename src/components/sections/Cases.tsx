@@ -93,16 +93,16 @@ export default function Cases() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-center md:items-center gap-4 md:gap-2 md:mx-10 md:transform md:skew-x-3">
+        <div className="flex flex-col md:flex-row md:justify-center md:items-stretch gap-4 md:gap-2 md:mx-10 md:transform md:skew-x-3 md:h-[75vmin]">
           {filteredCases.map((caseItem, index) => (
             <div
               key={caseItem.id}
-              className={`relative overflow-hidden rounded-2xl md:rounded-none transition-all duration-1000 ease-in-out cursor-pointer ${
-                hoveredCase === caseItem.id 
-                  ? 'md:flex-[10]' 
-                  : 'md:flex-1'
-              } ${index !== filteredCases.length - 1 ? 'md:mr-4' : ''}`}
-              style={{ height: hoveredCase === caseItem.id ? 'auto' : '300px', minHeight: '300px' }}
+              className={`relative overflow-hidden rounded-[20px] transition-all duration-1000 ease-in-out cursor-pointer flex-1`}
+              style={{ 
+                flexGrow: hoveredCase === caseItem.id ? 10 : 1,
+                marginRight: index !== filteredCases.length - 1 ? '1rem' : '0',
+                minHeight: '300px'
+              }}
               onMouseEnter={() => setHoveredCase(caseItem.id)}
               onMouseLeave={() => setHoveredCase(null)}
             >
