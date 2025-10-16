@@ -22,23 +22,25 @@ export default function Header() {
           : 'bottom-8 bg-transparent'
       }`}
     >
-      <nav className={`container mx-auto px-4 flex items-center justify-between transition-all duration-500 ${
-        isScrolled ? 'h-16' : 'h-20'
+      <nav className={`container mx-auto px-4 flex items-center transition-all duration-500 ${
+        isScrolled ? 'h-16 justify-between' : 'h-20 justify-center'
       }`}>
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
-            <span className="text-white font-bold text-sm">CT</span>
+        {isScrolled && (
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+              <span className="text-white font-bold text-sm">CT</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold tracking-tight">ContenTA</span>
+              <span className="text-xs text-muted-foreground -mt-1">Studio</span>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-xl font-bold tracking-tight">ContenTA</span>
-            <span className="text-xs text-muted-foreground -mt-1">Studio</span>
-          </div>
-        </div>
+        )}
 
-        <div className={`flex items-center gap-1 sm:gap-2 md:gap-6 rounded-full px-3 sm:px-4 md:px-8 py-3 transition-all duration-500 ${
+        <div className={`flex items-center gap-1 sm:gap-2 md:gap-6 px-3 sm:px-4 md:px-8 py-3 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-transparent' 
-            : 'bg-background/40 backdrop-blur-2xl border border-border/50 shadow-2xl'
+            ? 'bg-transparent rounded-none' 
+            : 'bg-background/40 backdrop-blur-2xl border border-border/50 shadow-2xl rounded-full'
         }`}>
           <a href="#services" className="nav-link">
             Услуги
@@ -56,16 +58,16 @@ export default function Header() {
             Блог
             <span className="nav-underline" />
           </a>
+        </div>
+
+        {isScrolled && (
           <Button 
-            size={isScrolled ? "default" : "lg"}
-            className="bg-gradient-to-r from-purple-500 to-blue-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all ml-2 text-xs sm:text-sm" 
+            className="bg-gradient-to-r from-purple-500 to-blue-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all text-sm" 
             asChild
           >
             <a href="#contact">Связаться</a>
           </Button>
-        </div>
-
-        <div className="w-20 md:w-32" />
+        )}
       </nav>
 
       <style>{`
