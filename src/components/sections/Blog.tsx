@@ -7,7 +7,7 @@ const blogPosts = [
     category: 'SMM',
     categoryColor: 'purple',
     readTime: '7 мин',
-    date: '15 октября 2024',
+    date: '15 октября 2025',
     icon: 'TrendingUp'
   },
   {
@@ -15,7 +15,7 @@ const blogPosts = [
     category: 'Стратегия',
     categoryColor: 'blue',
     readTime: '12 мин',
-    date: '8 октября 2024',
+    date: '8 октября 2025',
     icon: 'Target'
   },
   {
@@ -23,7 +23,7 @@ const blogPosts = [
     category: 'Стратегия',
     categoryColor: 'blue',
     readTime: '9 мин',
-    date: '1 октября 2024',
+    date: '1 октября 2025',
     icon: 'Zap'
   },
   {
@@ -31,7 +31,7 @@ const blogPosts = [
     category: 'SMM',
     categoryColor: 'purple',
     readTime: '10 мин',
-    date: '24 сентября 2024',
+    date: '24 сентября 2025',
     icon: 'MessageCircle'
   }
 ];

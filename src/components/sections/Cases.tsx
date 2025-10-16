@@ -180,6 +180,14 @@ export default function Cases() {
           perspective: 1000px;
         }
 
+        @media (max-width: 768px) {
+          .accordion-gallery {
+            flex-direction: column;
+            height: auto;
+            min-height: 800px;
+          }
+        }
+
         .accordion-item {
           position: relative;
           flex: 1;
@@ -191,10 +199,23 @@ export default function Cases() {
           box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
 
+        @media (max-width: 768px) {
+          .accordion-item {
+            min-height: 100px;
+            flex: 1;
+          }
+        }
+
         .accordion-item:hover {
           flex: 1.1;
           transform: translateY(-4px);
           box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+        }
+
+        @media (max-width: 768px) {
+          .accordion-item:hover {
+            transform: translateX(-4px);
+          }
         }
 
         .accordion-item.expanded {

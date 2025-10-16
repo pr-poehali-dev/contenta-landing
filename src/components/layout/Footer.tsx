@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/40">
           <div className="text-center text-muted-foreground text-sm">
-            © 2024 ContenTA Studio
+            © 2025 ContenTA Studio
           </div>
           <div className="flex gap-3">
             <Button variant="ghost" size="icon" className="hover:bg-primary/10 hover:text-primary">
