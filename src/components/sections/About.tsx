@@ -39,24 +39,24 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-16 md:py-24 lg:py-32 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-full blur-3xl" />
+    <section id="about" className="py-16 md:py-24 lg:py-32 px-4 relative overflow-hidden" style={{ backgroundColor: 'var(--theme-bg)' }}>
+      <div className="absolute inset-0 opacity-30" style={{ background: `linear-gradient(to bottom, var(--theme-bg), color-mix(in srgb, var(--theme-bg-alt) 30%, transparent), var(--theme-bg))` }} />
+      <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full blur-3xl" style={{ background: `linear-gradient(to bottom left, color-mix(in srgb, var(--theme-accent) 10%, transparent), transparent)` }} />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full blur-3xl" style={{ background: `linear-gradient(to top right, color-mix(in srgb, var(--theme-secondary) 10%, transparent), transparent)` }} />
       
       <div className="container mx-auto relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium mb-4 text-primary">
+            <div className="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ backgroundColor: 'color-mix(in srgb, var(--theme-primary) 10%, transparent)', color: 'var(--theme-text-dark)' }}>
               О студии
             </div>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ color: 'var(--theme-text-dark)' }}>
               ContenTA Studio —{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(to right, var(--theme-accent), var(--theme-secondary))` }}>
                 команда экспертов
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl max-w-3xl mx-auto" style={{ color: 'var(--theme-text)' }}>
               Мы помогаем брендам среднего бизнеса говорить с аудиторией по-настоящему: 
               через контент, эмоции и смыслы — без шаблонов и фальши
             </p>
@@ -65,15 +65,15 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
             {stats.map((stat, index) => (
               <div key={index} className="group relative">
-                <div className={`absolute -inset-1 bg-gradient-to-br ${stat.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-all`} />
-                <div className="relative bg-card border border-border/50 rounded-2xl p-4 md:p-6 text-center hover:border-primary/30 transition-all">
-                  <div className={`w-10 h-10 md:w-12 md:h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                <div className="absolute -inset-1 rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-all" style={{ backgroundImage: `linear-gradient(to bottom right, var(--theme-accent), var(--theme-secondary))` }} />
+                <div className="relative rounded-2xl p-4 md:p-6 text-center transition-all" style={{ backgroundColor: 'var(--theme-card)', borderColor: 'var(--theme-border)', borderWidth: '1px', borderStyle: 'solid' }}>
+                  <div className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-3 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform" style={{ backgroundImage: `linear-gradient(to bottom right, var(--theme-accent), var(--theme-secondary))` }}>
                     <Icon name={stat.icon} size={24} className="text-white" />
                   </div>
-                  <div className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-1`}>
+                  <div className="text-2xl md:text-3xl font-bold mb-1 bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(to right, var(--theme-accent), var(--theme-secondary))` }}>
                     {stat.value}
                   </div>
-                  <div className="text-xs md:text-sm text-muted-foreground">
+                  <div className="text-xs md:text-sm" style={{ color: 'var(--theme-text)' }}>
                     {stat.label}
                   </div>
                 </div>
@@ -84,14 +84,14 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-6 mb-12 md:mb-16">
             {team.map((member, index) => (
               <div key={index} className="group relative">
-                <div className="absolute -inset-1 bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all" />
-                <div className="relative bg-card border border-border/50 rounded-3xl p-6 hover:border-primary/30 transition-all h-full">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Icon name={member.icon} size={24} className="text-primary" />
+                <div className="absolute -inset-1 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all" style={{ backgroundImage: `linear-gradient(to bottom right, color-mix(in srgb, var(--theme-primary) 10%, transparent), color-mix(in srgb, var(--theme-primary) 5%, transparent))` }} />
+                <div className="relative rounded-3xl p-6 transition-all h-full" style={{ backgroundColor: 'var(--theme-card)', borderColor: 'var(--theme-border)', borderWidth: '1px', borderStyle: 'solid' }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ backgroundImage: `linear-gradient(to bottom right, color-mix(in srgb, var(--theme-primary) 20%, transparent), color-mix(in srgb, var(--theme-primary) 10%, transparent))` }}>
+                    <Icon name={member.icon} size={24} style={{ color: 'var(--theme-primary)' }} />
                   </div>
-                  <h3 className="text-lg font-bold mb-1">{member.name}</h3>
-                  <p className="text-sm text-primary font-semibold mb-3">{member.role}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <h3 className="text-lg font-bold mb-1" style={{ color: 'var(--theme-text-dark)' }}>{member.name}</h3>
+                  <p className="text-sm font-semibold mb-3" style={{ color: 'var(--theme-primary)' }}>{member.role}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--theme-text)' }}>
                     {member.description}
                   </p>
                 </div>
@@ -100,18 +100,19 @@ export default function About() {
           </div>
 
           <div className="text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-8">С кем мы работаем</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-8" style={{ color: 'var(--theme-text-dark)' }}>С кем мы работаем</h3>
             <div className="flex flex-wrap justify-center gap-3">
               {clients.map((client, index) => (
                 <div
                   key={index}
-                  className="px-4 md:px-6 py-2 md:py-3 bg-gradient-to-br from-card to-muted/30 border border-border/50 rounded-full text-sm md:text-base font-medium hover:border-primary/30 hover:scale-105 transition-all"
+                  className="px-4 md:px-6 py-2 md:py-3 rounded-full text-sm md:text-base font-medium hover:scale-105 transition-all"
+                  style={{ backgroundImage: `linear-gradient(to bottom right, var(--theme-card), var(--theme-bg-alt))`, borderColor: 'var(--theme-border)', borderWidth: '1px', borderStyle: 'solid', color: 'var(--theme-text-dark)' }}
                 >
                   {client}
                 </div>
               ))}
             </div>
-            <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
+            <p className="mt-6 max-w-2xl mx-auto" style={{ color: 'var(--theme-text)' }}>
               География: Москва, Санкт-Петербург, Екатеринбург, Казань, Пермь + клиенты в ближнем зарубежье
             </p>
           </div>
