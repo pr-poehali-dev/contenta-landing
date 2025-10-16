@@ -25,17 +25,13 @@ export default function Header() {
       <nav className={`container mx-auto px-4 flex items-center justify-between transition-all duration-500 ${
         isScrolled ? 'h-16' : 'h-20'
       }`}>
-        <div className={`transition-all duration-500 ${
-          isScrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}>
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
-              <span className="text-white font-bold text-sm">CT</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight">ContenTA</span>
-              <span className="text-xs text-muted-foreground -mt-1">Studio</span>
-            </div>
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+            <span className="text-white font-bold text-sm">CT</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xl font-bold tracking-tight">ContenTA</span>
+            <span className="text-xs text-muted-foreground -mt-1">Studio</span>
           </div>
         </div>
 
@@ -69,11 +65,7 @@ export default function Header() {
           </Button>
         </div>
 
-        <div className={`transition-all duration-500 ${
-          isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-0 pointer-events-none'
-        }`}>
-          <div className="w-20" />
-        </div>
+        <div className="w-20 md:w-32" />
       </nav>
 
       <style>{`
