@@ -59,16 +59,16 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-24 px-4 relative">
+    <section id="services" className="py-12 md:py-24 px-4 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
       
       <div className="container mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm text-primary font-medium mb-4">
+        <div className="text-center mb-8 md:mb-16">
+          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 rounded-full text-xs md:text-sm text-primary font-medium mb-3 md:mb-4">
             Что мы делаем
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">Наши услуги</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-6">Наши услуги</h2>
+          <p className="text-sm md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Комплексные решения для вашего бренда. Каждый материал работает на цель
           </p>
         </div>
@@ -111,7 +111,7 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="md:hidden relative max-w-md mx-auto">
+        <div className="md:hidden relative max-w-sm mx-auto">
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-out"
@@ -122,30 +122,30 @@ export default function Services() {
                   key={index}
                   className="w-full flex-shrink-0 px-2"
                 >
-                  <div className="relative bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-3xl p-8">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-[0.03] rounded-3xl`} />
+                  <div className="relative bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-2xl p-5">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-[0.03] rounded-2xl`} />
                     
                     <div className="relative z-10">
-                      <div className="mb-6 relative">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg`}>
-                          <Icon name={service.icon} size={32} className="text-white" />
+                      <div className="mb-4 relative">
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg`}>
+                          <Icon name={service.icon} size={24} className="text-white" />
                         </div>
                       </div>
 
-                      <h3 className="text-2xl font-bold mb-4">
+                      <h3 className="text-lg font-bold mb-3">
                         {service.title}
                       </h3>
                       
-                      <p className="text-muted-foreground leading-relaxed mb-6">
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                         {service.description}
                       </p>
 
                       <Button 
                         variant="ghost" 
-                        className="text-primary p-0 h-auto font-semibold"
+                        className="text-primary p-0 h-auto font-semibold text-sm"
                       >
                         Подробнее 
-                        <Icon name="ArrowRight" size={18} className="ml-2" />
+                        <Icon name="ArrowRight" size={16} className="ml-2" />
                       </Button>
                     </div>
                   </div>
@@ -154,24 +154,24 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-4 mt-8">
+          <div className="flex justify-center items-center gap-3 mt-6">
             <Button
               variant="outline"
               size="icon"
               onClick={prevSlide}
-              className="rounded-full border-2"
+              className="rounded-full border-2 h-9 w-9"
             >
-              <Icon name="ChevronLeft" size={24} />
+              <Icon name="ChevronLeft" size={20} />
             </Button>
 
-            <div className="flex gap-2">
+            <div className="flex gap-1.5">
               {services.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                     index === currentSlide 
-                      ? 'bg-primary w-8' 
+                      ? 'bg-primary w-6' 
                       : 'bg-border hover:bg-primary/50'
                   }`}
                 />
@@ -182,9 +182,9 @@ export default function Services() {
               variant="outline"
               size="icon"
               onClick={nextSlide}
-              className="rounded-full border-2"
+              className="rounded-full border-2 h-9 w-9"
             >
-              <Icon name="ChevronRight" size={24} />
+              <Icon name="ChevronRight" size={20} />
             </Button>
           </div>
         </div>

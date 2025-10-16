@@ -49,14 +49,14 @@ export default function Blog() {
   };
 
   return (
-    <section id="blog" className="py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section id="blog" className="py-12 md:py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm text-primary font-medium mb-4">
+        <div className="text-center mb-8 md:mb-16">
+          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 rounded-full text-xs md:text-sm text-primary font-medium mb-3 md:mb-4">
             Экспертиза
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">Блог и статьи</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-6">Блог и статьи</h2>
+          <p className="text-sm md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Делимся знаниями о контент-маркетинге, SMM и digital-стратегиях
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function Blog() {
           ))}
         </div>
 
-        <div className="md:hidden relative max-w-md mx-auto">
+        <div className="md:hidden relative max-w-sm mx-auto">
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-out"
@@ -120,41 +120,41 @@ export default function Blog() {
                   key={index}
                   className="w-full flex-shrink-0 px-2"
                 >
-                  <div className="relative bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-3xl p-6">
-                    <div className="absolute top-6 right-6 w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                      <Icon name={post.icon} size={24} className="text-primary" />
+                  <div className="relative bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-2xl p-5">
+                    <div className="absolute top-5 right-5 w-10 h-10 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                      <Icon name={post.icon} size={20} className="text-primary" />
                     </div>
 
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className={`text-xs font-semibold px-3 py-1.5 rounded-full ${
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className={`text-[10px] font-semibold px-2 py-1 rounded-full ${
                         post.categoryColor === 'purple' 
                           ? 'bg-purple-500/10 text-purple-600 border border-purple-500/20' 
                           : 'bg-blue-500/10 text-blue-600 border border-blue-500/20'
                       }`}>
                         {post.category}
                       </span>
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <Icon name="Clock" size={14} />
+                      <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                        <Icon name="Clock" size={12} />
                         {post.readTime}
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold mb-4 leading-tight pr-12">
+                    <h3 className="text-base font-bold mb-3 leading-tight pr-10">
                       {post.title}
                     </h3>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-border/40">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Icon name="Calendar" size={16} />
+                    <div className="flex items-center justify-between pt-3 border-t border-border/40">
+                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                        <Icon name="Calendar" size={14} />
                         {post.date}
                       </div>
                       <Button 
                         variant="ghost" 
                         size="sm" 
-                        className="text-primary p-0 h-auto font-semibold"
+                        className="text-primary p-0 h-auto font-semibold text-xs"
                       >
                         Читать
-                        <Icon name="ArrowRight" size={16} className="ml-2" />
+                        <Icon name="ArrowRight" size={14} className="ml-1" />
                       </Button>
                     </div>
                   </div>
@@ -163,24 +163,24 @@ export default function Blog() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-4 mt-8">
+          <div className="flex justify-center items-center gap-3 mt-6">
             <Button
               variant="outline"
               size="icon"
               onClick={prevSlide}
-              className="rounded-full border-2"
+              className="rounded-full border-2 h-9 w-9"
             >
-              <Icon name="ChevronLeft" size={24} />
+              <Icon name="ChevronLeft" size={20} />
             </Button>
 
-            <div className="flex gap-2">
+            <div className="flex gap-1.5">
               {blogPosts.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                     index === currentSlide 
-                      ? 'bg-primary w-8' 
+                      ? 'bg-primary w-6' 
                       : 'bg-border hover:bg-primary/50'
                   }`}
                 />
@@ -191,21 +191,21 @@ export default function Blog() {
               variant="outline"
               size="icon"
               onClick={nextSlide}
-              className="rounded-full border-2"
+              className="rounded-full border-2 h-9 w-9"
             >
-              <Icon name="ChevronRight" size={24} />
+              <Icon name="ChevronRight" size={20} />
             </Button>
           </div>
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 md:mt-12">
           <Button 
-            size="lg" 
+            size="sm"
+            className="md:text-base"
             variant="outline" 
-            className="border-2 hover:border-primary hover:bg-primary/5 transition-all"
           >
             Все статьи блога
-            <Icon name="ExternalLink" size={18} className="ml-2" />
+            <Icon name="ExternalLink" size={16} className="ml-2" />
           </Button>
         </div>
       </div>

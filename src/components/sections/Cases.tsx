@@ -70,24 +70,25 @@ export default function Cases() {
     : cases.filter(c => c.category === selectedCategory);
 
   return (
-    <section id="cases" className="py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section id="cases" className="py-12 md:py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm text-primary font-medium mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 rounded-full text-xs md:text-sm text-primary font-medium mb-3 md:mb-4">
             Наши результаты
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">Кейсы и результаты</h2>
-          <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-6">Кейсы и результаты</h2>
+          <p className="text-sm md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-10 max-w-2xl mx-auto px-4">
             Реальные проекты с измеримым эффектом
           </p>
           
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
             {categories.map((cat) => (
               <Button
                 key={cat.id}
                 variant={selectedCategory === cat.id ? 'default' : 'outline'}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`capitalize transition-all ${
+                size="sm"
+                className={`capitalize transition-all text-xs md:text-sm ${
                   selectedCategory === cat.id 
                     ? 'bg-gradient-to-r from-purple-500 to-blue-500 shadow-lg shadow-purple-500/30' 
                     : 'hover:border-primary/50'
@@ -331,15 +332,39 @@ export default function Cases() {
 
         @media (max-width: 768px) {
           .accordion-content {
-            padding: 1.5rem;
+            padding: 1rem;
           }
 
           .accordion-item {
-            min-height: 250px;
+            min-height: 180px;
+            border-radius: 1rem;
           }
 
           .accordion-item.expanded {
-            min-height: 450px;
+            min-height: 380px;
+          }
+
+          .accordion-icon {
+            top: 1rem;
+            right: 1rem;
+            width: 2rem;
+            height: 2rem;
+          }
+
+          .accordion-compact h3 {
+            font-size: 1rem;
+          }
+
+          .accordion-compact .text-3xl {
+            font-size: 1.5rem;
+          }
+
+          .accordion-expanded h3 {
+            font-size: 1.25rem;
+          }
+
+          .accordion-expanded .text-4xl {
+            font-size: 2rem;
           }
         }
       `}</style>

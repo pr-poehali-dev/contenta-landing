@@ -48,17 +48,17 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 px-4 relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-24 px-4 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-purple-500/10 to-blue-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-pink-500/10 to-indigo-500/10 rounded-full blur-3xl" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm text-primary font-medium mb-4">
+        <div className="text-center mb-8 md:mb-16">
+          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 rounded-full text-xs md:text-sm text-primary font-medium mb-3 md:mb-4">
             Свяжитесь с нами
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">Обсудим ваш проект?</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-6">Обсудим ваш проект?</h2>
+          <p className="text-sm md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Готовы создать контент-систему, которая работает? Оставьте заявку
           </p>
         </div>
