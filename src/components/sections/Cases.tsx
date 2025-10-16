@@ -86,6 +86,7 @@ export default function Cases() {
                 size="sm"
                 onClick={() => setSelectedCategory(cat.id)}
                 className="text-xs md:text-sm"
+                style={selectedCategory === cat.id ? { backgroundColor: 'var(--theme-accent)', borderColor: 'var(--theme-accent)', color: 'white' } : { borderColor: 'var(--theme-border)', color: 'var(--theme-text)' }}
               >
                 {cat.label}
               </Button>
@@ -119,10 +120,14 @@ export default function Cases() {
               <div
                 className={`absolute bottom-0 left-0 text-white font-bold whitespace-nowrap transition-all duration-500 ease-in-out ${
                   hoveredCase === caseItem.id
-                    ? 'md:top-auto md:bottom-0 md:left-0 md:w-full md:text-center md:transform-none md:-skew-x-3 md:bg-[#2D5F6E]/80 md:text-2xl md:py-4'
+                    ? 'md:top-auto md:bottom-0 md:left-0 md:w-full md:text-center md:transform-none md:-skew-x-3 md:text-2xl md:py-4'
                     : 'md:origin-top-left md:-rotate-90 md:bottom-0 md:left-0 md:text-base md:py-2 md:px-4 md:min-w-full'
                 } py-2 px-4 text-base w-full text-center`}
-                style={{ backgroundColor: hoveredCase === caseItem.id ? undefined : `${caseItem.color}CC` }}
+                style={{ 
+                  backgroundColor: hoveredCase === caseItem.id 
+                    ? 'color-mix(in srgb, var(--theme-text-dark) 80%, transparent)' 
+                    : 'color-mix(in srgb, var(--theme-primary) 80%, transparent)'
+                }}
               >
                 {hoveredCase === caseItem.id ? (
                   <div className="md:block hidden">
