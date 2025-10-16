@@ -154,7 +154,8 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Button 
               size={isScrolled ? "default" : "lg"}
-              className="hidden md:flex bg-[#2D5F6E] hover:bg-[#2D5F6E]/90 hover:shadow-lg hover:shadow-[#81D8D0]/20 transition-all text-sm" 
+              className="hidden md:flex text-white hover:shadow-lg transition-all text-sm" 
+              style={{ backgroundColor: 'var(--theme-accent)' }}
               asChild
             >
               <a href="#contact">Связаться</a>
