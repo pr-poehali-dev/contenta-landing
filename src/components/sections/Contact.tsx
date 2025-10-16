@@ -63,44 +63,44 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="space-y-6 lg:space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Как с нами связаться</h3>
-              <div className="space-y-4">
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">Как с нами связаться</h3>
+              <div className="space-y-3 lg:space-y-4">
                 {contactInfo.map((info, index) => (
                   <a
                     key={index}
                     href={info.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-4 p-4 bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-2xl hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all"
+                    className="group flex items-center gap-3 lg:gap-4 p-3 lg:p-4 bg-gradient-to-br from-card to-muted/30 border border-border/40 rounded-xl lg:rounded-2xl hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all"
                   >
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${info.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
-                      <Icon name={info.icon} size={24} className="text-white" />
+                    <div className={`w-12 h-12 lg:w-14 lg:h-14 flex-shrink-0 rounded-xl bg-gradient-to-br ${info.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                      <Icon name={info.icon} size={20} className="text-white lg:w-6 lg:h-6" />
                     </div>
-                    <div className="flex-1">
-                      <div className="text-sm font-semibold text-muted-foreground mb-1">
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs lg:text-sm font-semibold text-muted-foreground mb-1">
                         {info.title}
                       </div>
-                      <div className="font-semibold group-hover:text-primary transition-colors">
+                      <div className="text-sm lg:text-base font-semibold group-hover:text-primary transition-colors truncate">
                         {info.value}
                       </div>
                     </div>
-                    <Icon name="ExternalLink" size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                    <Icon name="ExternalLink" size={18} className="text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 lg:w-5 lg:h-5" />
                   </a>
                 ))}
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-500/10 via-blue-500/10 to-pink-500/10 border border-purple-500/20 rounded-3xl p-8 backdrop-blur-sm">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0">
-                  <Icon name="Sparkles" size={24} className="text-white" />
+            <div className="bg-gradient-to-br from-purple-500/10 via-blue-500/10 to-pink-500/10 border border-purple-500/20 rounded-2xl lg:rounded-3xl p-4 lg:p-8 backdrop-blur-sm">
+              <div className="flex items-start gap-3 lg:gap-4">
+                <div className="w-10 h-10 lg:w-12 lg:h-12 flex-shrink-0 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                  <Icon name="Sparkles" size={20} className="text-white lg:w-6 lg:h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg mb-2">Бесплатная консультация</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <h4 className="font-bold text-base lg:text-lg mb-1 lg:mb-2">Бесплатная консультация</h4>
+                  <p className="text-xs lg:text-sm text-muted-foreground leading-relaxed">
                     Обсудим ваш бизнес, текущую ситуацию с контентом и предложим решение — 
                     даже если вы пока не готовы к сотрудничеству
                   </p>

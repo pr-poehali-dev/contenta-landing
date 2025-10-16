@@ -96,7 +96,16 @@ export default function Hero() {
           align-items: center;
           position: relative;
           padding-top: 5rem;
-          padding-bottom: 3rem;
+          padding-bottom: 10rem;
+        }
+
+        @media (max-width: 768px) {
+          .hero-fullscreen {
+            padding-top: 3rem;
+            padding-bottom: 8rem;
+            align-items: flex-start;
+            padding-top: 15vh;
+          }
         }
 
         .hero-bg-animated {
@@ -347,7 +356,7 @@ export default function Hero() {
         .hero-stats {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 1.5rem;
+          gap: 1rem;
           max-width: 56rem;
           margin: 0 auto;
           animation: fade-in-up 0.8s ease-out 0.8s both;
@@ -356,6 +365,7 @@ export default function Hero() {
         @media (min-width: 768px) {
           .hero-stats {
             grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
           }
         }
 
@@ -363,9 +373,15 @@ export default function Hero() {
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
           border: 1px solid rgba(139, 92, 246, 0.2);
           border-radius: 1.5rem;
-          padding: 1.5rem;
+          padding: 1rem;
           backdrop-filter: blur(10px);
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (min-width: 768px) {
+          .stat-card {
+            padding: 1.5rem;
+          }
         }
 
         .stat-card:hover {
@@ -400,6 +416,12 @@ export default function Hero() {
           color: hsl(var(--muted-foreground));
           opacity: 0.6;
           animation: fade-in 1s ease-out 1.5s both;
+        }
+
+        @media (max-width: 768px) {
+          .hero-scroll-indicator {
+            display: none;
+          }
         }
 
         @keyframes fade-in-down {
