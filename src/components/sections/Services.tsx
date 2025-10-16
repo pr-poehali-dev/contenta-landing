@@ -8,42 +8,42 @@ const services = [
     description: 'Разрабатываем системный подход к контенту: аудит, позиционирование, воронки и медиа-архитектуру бренда',
     icon: 'Target',
     features: ['Аудит контента', 'Позиционирование', 'Контент-воронки', 'Медиа-архитектура'],
-    gradient: 'from-purple-500 to-pink-500'
+    color: '#81D8D0'
   },
   {
     title: 'SMM и сообщества',
     description: 'Создаём живые сообщества в Telegram, VK и других платформах. Контент, который вовлекает и продаёт',
     icon: 'Users',
     features: ['Telegram-каналы', 'VK сообщества', 'Контент-планы', 'Вовлечение'],
-    gradient: 'from-blue-500 to-purple-500'
+    color: '#70F0DC'
   },
   {
     title: 'Визуальный контент',
     description: 'Разрабатываем визуальную систему бренда: от креативов до видео. Истории, которые запоминаются',
     icon: 'Sparkles',
     features: ['Stories', 'Reels', 'Дизайн-система', 'Видео-контент'],
-    gradient: 'from-pink-500 to-orange-500'
+    color: '#2D5F6E'
   },
   {
     title: 'Таргет и воронки',
     description: 'Настраиваем таргетированную рекламу с применением нейромаркетинга и поведенческих триггеров',
     icon: 'TrendingUp',
     features: ['VK Реклама', 'MyTarget', 'Воронки продаж', 'Триггеры'],
-    gradient: 'from-purple-500 to-indigo-500'
+    color: '#EADAC1'
   },
   {
     title: 'Копирайтинг',
     description: 'Пишем тексты, которые продают и создают доверие. От постов до лонгридов и PR-материалов',
     icon: 'PenTool',
     features: ['Посты', 'Лонгриды', 'Сценарии', 'PR-тексты'],
-    gradient: 'from-orange-500 to-pink-500'
+    color: '#81D8D0'
   },
   {
     title: 'Аналитика и рост',
     description: 'Отслеживаем метрики, анализируем результаты, оптимизируем стратегию для максимального эффекта',
     icon: 'BarChart',
     features: ['Метрики', 'A/B тесты', 'Отчёты', 'Оптимизация'],
-    gradient: 'from-indigo-500 to-blue-500'
+    color: '#70F0DC'
   }
 ];
 
@@ -60,21 +60,21 @@ export default function Services() {
 
   return (
     <section id="services" className="py-16 md:py-24 lg:py-32 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-background to-background" />
-      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-l from-purple-500/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-[#F8F7F5] to-background" />
+      <div className="absolute top-20 right-0 w-96 h-96 bg-[#81D8D0]/10 rounded-full blur-3xl" />
       
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium mb-4 text-primary">
+          <div className="inline-block px-5 py-2.5 bg-[#81D8D0]/10 border border-[#81D8D0]/20 rounded-full text-sm font-medium mb-4 text-[#2D5F6E] uppercase tracking-wide">
             Что мы делаем
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#2D5F6E] leading-tight">
             Комплексные{' '}
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#81D8D0] to-[#2D5F6E] bg-clip-text text-transparent">
               решения
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-[#474C50] max-w-3xl mx-auto">
             От стратегии и производства контента до таргета и аналитики. Каждый материал работает на цель
           </p>
         </div>
@@ -85,26 +85,26 @@ export default function Services() {
               key={index}
               className="group relative"
             >
-              <div className={`absolute -inset-1 bg-gradient-to-br ${service.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-all duration-500`} />
+              <div className="absolute -inset-1 rounded-2xl blur-xl opacity-0 group-hover:opacity-20 transition-all duration-500" style={{ backgroundColor: service.color }} />
               
-              <div className="relative bg-card border border-border/50 rounded-3xl p-6 md:p-8 hover:border-primary/30 transition-all h-full flex flex-col">
+              <div className="relative bg-white/70 backdrop-blur-sm border border-[#E6E6EB] rounded-2xl p-6 md:p-8 hover:border-[#81D8D0]/40 hover:shadow-lg transition-all h-full flex flex-col">
                 <div className="mb-5">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all`}>
-                    <Icon name={service.icon} size={28} className="text-white" />
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 transition-all" style={{ backgroundColor: `${service.color}20` }}>
+                    <Icon name={service.icon} size={28} style={{ color: service.color }} />
                   </div>
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 text-[#2D5F6E] group-hover:text-[#81D8D0] transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed mb-5 flex-1">
+                <p className="text-[#474C50] leading-relaxed mb-5 flex-1">
                   {service.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2">
                   {service.features.map((feature, i) => (
-                    <span key={i} className="text-xs px-3 py-1 bg-muted/50 rounded-full text-muted-foreground">
+                    <span key={i} className="text-xs px-3 py-1.5 bg-[#F8F7F5] border border-[#E6E6EB] rounded-full text-[#474C50]">
                       {feature}
                     </span>
                   ))}

@@ -40,7 +40,7 @@ export default function Header() {
           <div className={`flex items-center gap-3 transition-all duration-500 ${
             isScrolled ? 'scale-90' : 'scale-100'
           }`}>
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#81D8D0] to-[#2D5F6E] flex items-center justify-center shadow-lg shadow-[#81D8D0]/20">
               <span className="text-white font-bold text-base">CT</span>
             </div>
             <div className="flex flex-col">
@@ -52,7 +52,7 @@ export default function Header() {
           <div className={`hidden md:flex items-center gap-1 sm:gap-2 md:gap-6 px-3 sm:px-4 md:px-8 py-3 transition-all duration-500 ${
             isScrolled 
               ? 'bg-transparent rounded-none' 
-              : 'bg-background/40 backdrop-blur-2xl border border-border/50 shadow-2xl rounded-full'
+              : 'bg-white/50 backdrop-blur-2xl border border-[#81D8D0]/20 shadow-lg rounded-full'
           }`}>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} className="nav-link">
@@ -65,7 +65,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Button 
               size={isScrolled ? "default" : "lg"}
-              className="hidden md:flex bg-gradient-to-r from-purple-500 to-blue-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all text-sm" 
+              className="hidden md:flex bg-[#2D5F6E] hover:bg-[#2D5F6E]/90 hover:shadow-lg hover:shadow-[#81D8D0]/20 transition-all text-sm" 
               asChild
             >
               <a href="#contact">Связаться</a>
@@ -108,7 +108,7 @@ export default function Header() {
 
           <Button 
             size="lg"
-            className="bg-gradient-to-r from-purple-500 to-blue-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all text-lg h-14 w-full" 
+            className="bg-[#2D5F6E] hover:bg-[#2D5F6E]/90 hover:shadow-lg hover:shadow-[#81D8D0]/30 transition-all text-lg h-14 w-full" 
             asChild
           >
             <a href="#contact" onClick={handleLinkClick}>
@@ -119,7 +119,7 @@ export default function Header() {
 
           <div className="mt-auto pt-8 border-t border-border/40">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#81D8D0] to-[#2D5F6E] flex items-center justify-center shadow-lg shadow-[#81D8D0]/20">
                 <span className="text-white font-bold text-sm">CT</span>
               </div>
               <div className="flex flex-col">
@@ -159,7 +159,7 @@ export default function Header() {
         }
 
         .nav-link:hover {
-          color: hsl(var(--primary));
+          color: #2D5F6E;
         }
 
         .nav-underline {
@@ -168,7 +168,7 @@ export default function Header() {
           left: 0.75rem;
           right: 0.75rem;
           height: 2px;
-          background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+          background: linear-gradient(90deg, #81D8D0, #70F0DC);
           transform: scaleX(0);
           transition: transform 0.3s ease;
         }
@@ -204,8 +204,8 @@ export default function Header() {
 
         .mobile-nav-link:active {
           transform: scale(0.98);
-          background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
-          border-color: rgba(139, 92, 246, 0.3);
+          background: linear-gradient(135deg, rgba(129, 216, 208, 0.1), rgba(112, 240, 220, 0.1));
+          border-color: rgba(129, 216, 208, 0.4);
         }
       `}</style>
     </>
